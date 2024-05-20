@@ -174,11 +174,7 @@ const Hikes = () => {
       <h1 className="text-white text-sm">info@trailmaker.com</h1>
     </div>
   </section>
-
- 
 </section>
-
-  
   )
 }
 

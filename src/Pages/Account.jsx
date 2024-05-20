@@ -8,7 +8,6 @@ import { FaRegMessage } from "react-icons/fa6";
 import { MdLogout } from "react-icons/md";
 import { LiaUserFriendsSolid } from "react-icons/lia";
 import { Button, Card } from 'antd'
-
 import React, { useEffect, useState } from 'react';
 
 
@@ -20,7 +19,6 @@ const Account = () => {
         setUsername(storedUsername);
       }, []);
     
-
   return (
     <section className='bg-slate-300 min-h-screen absolute w-full z-[-1]'>
     <div className='ml-4 md:ml-[150px]'>
@@ -79,9 +77,6 @@ const Account = () => {
         {username && <p className='font-bold text-2xl'> {username}</p>}
     </div>
 </section>
-
-
-
 
   )
 }

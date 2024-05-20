@@ -28,7 +28,6 @@ const Create = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Save form data to local storage or perform any other actions
     console.log('Form data submitted:', formData);
   };
 
@@ -127,11 +126,6 @@ const Create = () => {
     </div>
   </section>
   
-
-  
-  
-
-    
   );
 }
 

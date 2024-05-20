@@ -74,11 +74,6 @@ const Path = () => {
       ></iframe>
     </div>
   </section>
-  
-  
-
-
-    
   );
 };
 

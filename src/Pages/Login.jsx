@@ -11,7 +11,6 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Assuming validation passes
     localStorage.setItem('username', username);
     localStorage.setItem('password', password);
     history.push('/dashboard');
@@ -71,12 +70,8 @@ const Login = () => {
       <div className="text-white font-extralight text-center mt-6 text-lg ">Don’t have an account ?
       <a href="/signup" className="ml-1 font-medium">Create</a>
     </div>
-
-
     </div>
   </section>
-  
-    
   );
 };
 
