@@ -3,7 +3,7 @@ import map2 from '../images/map2.png'
 import { Button } from 'antd'
 import { Link } from 'react-router-dom';
 
-function ImageBox() {
+const Save = () => {
   const [imageUrl, setImageUrl] = useState('');
 
   const handleImageChange = (event) => {
@@ -88,4 +88,4 @@ function ImageBox() {
   );
 }
 
-export default ImageBox;
+export default Save;

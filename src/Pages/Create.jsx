@@ -1,15 +1,16 @@
+import { Button } from 'antd';
 import React, { useState } from 'react';
-import { Button } from 'antd'
 import { Link } from 'react-router-dom';
-import img9 from '../images/img9.png'
-import user1 from '../images/user1.png'
-import user2 from '../images/user2.png'
-import user3 from '../images/user3.png'
-import user4 from '../images/user4.png'
-import user5 from '../images/user5.png'
-import user6 from '../images/user6.png'
+import img9 from '../images/img9.png';
+import user1 from '../images/user1.png';
+import user2 from '../images/user2.png';
+import user3 from '../images/user3.png';
+import user4 from '../images/user4.png';
+import user5 from '../images/user5.png';
+import user6 from '../images/user6.png';
 
-function TrailForm() {
+const Create = () => {
+  
   const [formData, setFormData] = useState({
     trailDestination: '',
     startDate: '',
@@ -134,4 +135,4 @@ function TrailForm() {
   );
 }
 
-export default TrailForm;
+export default Create;

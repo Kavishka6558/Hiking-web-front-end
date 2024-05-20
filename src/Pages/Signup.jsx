@@ -5,7 +5,7 @@ import login from '../images/login.png'
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
 
-const SignupForm = () => {
+const Signup = () => {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -113,4 +113,4 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default Signup;

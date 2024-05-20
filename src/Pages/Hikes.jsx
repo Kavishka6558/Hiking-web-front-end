@@ -7,7 +7,7 @@ import img8 from '../images/img8.png'
 import { Button } from 'antd'
 
 
-const Create = () => {
+const Hikes = () => {
   const [username, setUsername] = useState('');
   const [location, setLocation] = useState('');
 
@@ -182,4 +182,4 @@ const Create = () => {
   )
 }
 
-export default Create
+export default Hikes

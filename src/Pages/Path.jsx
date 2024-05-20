@@ -5,7 +5,7 @@ import { Button } from 'antd';
 import { Link } from 'react-router-dom';
 
 
-const Path = ({ apiKey, center, zoom, markers }) => {
+const Path = () => {
   const steps = [
     {
       id: 'Greet',

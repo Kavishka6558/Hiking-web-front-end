@@ -6,7 +6,7 @@ import google1 from '../images/google1.png'
 import { Button } from 'antd';
 import login from '../images/login.png'
 
-const Login = ({ history }) => {
+const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
