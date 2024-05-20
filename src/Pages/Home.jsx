@@ -44,7 +44,7 @@ const Home = () => {
             </div>
                 <Link to="/trails">
                 <Button className='bg-teal-900 left-[130px] top-[710px] absolute w-44 h-14 rounded-xl z-[-1]' id='FindHike'>
-                <h1 className='left-[20px] top-[10px] absolute text-black text-xl font-medium'>Explore more</h1>
+                <h1 className='left-[23px] top-[10px] absolute text-white text-xl font-medium'><a>Explore more</a></h1>
                 </Button>
                 </Link>
                
@@ -167,7 +167,7 @@ const Home = () => {
           <div className="left-0 top-0 absolute text-black text-5xl font-bold">Creating path <br/>is simple</div>
           <div className="w-72 left-0 top-[120px] absolute text-black text-base font-light">Follow six simple steps below to create your own hiking path</div>
           <Button className="w-36 h-12 left-0 top-[186px] absolute bg-teal-800 rounded-xl" >
-            <h1 className='top-[13px] absolute text-white font-semibold ml-4'>Get Started</h1>
+            <h1 className='top-[13px] absolute text-white font-semibold ml-4'><a href='./trails'>Get Started</a></h1>
           </Button>
         </div>
             <img className="h-[500px] left-[1400px] top-[2700px] absolute origin-top-left z-[-1]" src={img10} />

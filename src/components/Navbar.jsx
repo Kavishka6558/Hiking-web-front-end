@@ -35,7 +35,7 @@ const Navbar = ({ loggedIn, username }) => {
         { link: "Create", path: "/create" },
         { link: "Path", path: "/path" },
         { link: "Save", path: "/save" },
-        { link: "Account", path: "/account" },
+       
     ];
 
     return (
