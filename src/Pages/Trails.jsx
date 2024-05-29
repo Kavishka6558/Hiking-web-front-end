@@ -23,7 +23,7 @@ const Trails = () => {
       </p>
       <Link to="/signup">
         <Button className='w-64 sm:w-96 h-16 sm:h-20 bg-[#0A4649] rounded-full mt-8 sm:mt-12 flex items-center justify-center text-white'>
-        <h1 className=' text-3xl sm:text-3xl font-bold flex'>FIND A HIKE <FaArrowAltCircleRight className='ml-3 mt-1' /> </h1>
+        <h1 className=' text-3xl sm:text-2xl font-bold flex'>FIND A HIKE <FaArrowAltCircleRight className='ml-3 mt-1' /> </h1>
         </Button>
       </Link>
     </div>

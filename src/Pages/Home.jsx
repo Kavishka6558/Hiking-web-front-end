@@ -1,136 +1,164 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { Button } from 'antd'
-import { Card } from 'antd'
+import { Button, Card } from 'antd'
+import { FiArrowDownRight } from "react-icons/fi";
+import { motion } from 'framer-motion'
 import hero from '../images/hero.png'
 import Rectangle from '../images/Rectangle.png'
-import { motion } from 'framer-motion'
 import img1 from '../images/img1.png'
 import img2 from '../images/img2.png'
 import img3 from '../images/img3.png'
 import F1 from '../images/F1.png'
 import F2 from '../images/F2.png'
 import F3 from '../images/F3.png'
-import { FiArrowDownRight } from "react-icons/fi";
 import user1 from '../images/user1.png'
 import user2 from '../images/user2.png'
 import user3 from '../images/user3.png'
 import user4 from '../images/user4.png'
 import img10 from '../images/img10.png'
-
-import img11 from '../images/img11.png'
-import img12 from '../images/img12.png'
 import google from '../images/google.png'
 import apple from '../images/apple.png'
 import star from '../images/star.png'
+import arrow from '../images/arrow.png'
 
 const Home = () => {
 
   return (
     <section>
-        <section>
-            <div className="left-[131px] top-[236px] absolute text-teal-950 text-8xl font-bold leading-20 z-[-1]">
-            <motion.h1 
-            initial={{y: "2rem", opacity:0}}
-            animate={{y: 0, opacity: 1}}
-            transition={{duration: 2,
-                          type: "tween"}}
-            >
-            Explore<br/>
-            The perfect <br/>Trails <br/> In Srilanka
-            </motion.h1>
-              <h1 className='w-96 left-[131px]absolute text-teal-950 text-xl font-extralight mt-5'>
-              Easily find your perfect hiking trail and leave the search struggles behind</h1>
-            </div>
-                <Link to="/trails">
-                <Button className='bg-teal-900 left-[130px] top-[710px] absolute w-44 h-14 rounded-xl z-[-1]' id='FindHike'>
-                <h1 className='left-[23px] top-[10px] absolute text-white text-xl font-medium'><a>Explore more</a></h1>
-                </Button>
-                </Link>
-               
+      <section className="relative flex flex-col items-start lg:flex-row lg:items-center min-h-screen bg-white mt-20 ">
+      <div className="relative z-10 lg:z-0 lg:absolute lg:left-[131px] lg:top-[236px] text-teal-950 text-4xl lg:text-8xl font-bold leading-tight lg:leading-[5rem] mb-8 lg:mb-0 ml-10">
+        <motion.h1 
+          initial={{ y: "2rem", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 2, type: "tween" }}
+        >
+          Explore<br />
+          The perfect <br />Trails <br /> In Srilanka
+        </motion.h1>
+        <h1 className='w-full lg:w-96 mt-5 text-xl font-extralight'>
+          Easily find your perfect hiking trail and leave the search struggles behind
+        </h1>
+      </div>
 
-            <img className="w-1500 h-1080 left-[890px] top-[0px] absolute origin-top-left z-[-1]" src={Rectangle} />
+      <Link to="/trails" className="mt-2 lg:mt-96 lg:ml-44 ml-10">
+        <Button className='bg-teal-900 w-full lg:w-44 h-14 rounded-xl z-10'>
+          <a className='text-xl font-medium'>Explore more</a>
+        </Button>
+      </Link>
+      
+      <img className="hidden lg:block lg:w-[1000px] lg:h-[950px] lg:absolute lg:left-[890px] lg:top-0 origin-top-left z-0" src={Rectangle} alt="Background" />
+      <motion.div 
+        initial={{ x: "7rem", opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 2, type: "tween" }}
+        className='w-full lg:w-[1500px] lg:h-[1080px] lg:absolute lg:left-[400px] lg:top-[60px] origin-top-left z-0'
+      >
+        <img src={hero} alt='Hero' className="w-full h-auto" />
+      </motion.div>
+    </section>
     
-            <motion.div 
-            initial={{x: "7rem", opacity: 0}}
-            animate={{x: 0, opacity: 1}}
-            transition={{
-            duration: 2,
-            type: "tween"
-            }}
-            className='w-[1500px] h-1080 left-[400px] top-[60px]  absolute origin-top-left z-[-1]'>
-            <img src={hero} alt=''/>
-            </motion.div>
-        </section>
 
-        <section >
-            {/* ------------------------blog section-------------------------------------------------- */}
-            <div className="w-96 h-96 absolute top-[1100px] left-[131px] z-[-1]">
-                <div>
-                    <h1 className="left-[1px] top-[108px] absolute text-black text-5xl font-bold font-['Inter']">Best trail <br/>to hike </h1>
-                    <h1 className="w-64 left-0 top-[236px] absolute text-black text-base font-light font-['Inter']">These are our top rated and most visited destination</h1>
-                    <h1 className="left-0 top-[292px] absolute text-black text-base font-bold font-['Inter'] underline">View all mountains <FiArrowDownRight  className='ml-[150px] -mt-4'/></h1>
-                </div>
-                <div className=''>
-                    <img className="w-96 h-96 left-[374px] top-0 absolute rounded-xl hover:scale-105 transition duration-300 ease-in-out" src={img1} />
-                    <Card className='w-80 h-36 left-[405px] top-[311px] absolute bg-white rounded-xl shadow-xl'>
-                    <h1 className="left-[20px] top-[20px] absolute text-black text-xl font-bold">Ella rock</h1>
-                    <h1 className="w-72 left-[20px] top-[50px] absolute text-justify text-black text-base font-light font-['Inter'] capitalize">Located near the town of Ella</h1>
-                    </Card>
+      {/* ------------------------blog section-------------------------------------------------- */}
+    <section className="relative flex flex-col items-center pt-8 lg:pt-0 -mt-20">
+      <div className="w-full  mx-auto relative mt-60">
+        <div className="text-center lg:text-start mb-8 lg:ml-32">
+          <h1 className="text-black text-3xl lg:text-5xl font-bold font-['Inter']">Best trail <br />to hike</h1>
+          <h1 className="mt-4 lg:mt-2 text-black text-base font-light font-['Inter']">These are our top rated and <br/>most visited destinations</h1>
+          <h1 className="mt-4 text-blue-500 text-base font-bold font-['Inter'] underline inline-flex items-center">
+            View all mountains <FiArrowDownRight className='ml-2' />
+          </h1>
+        </div>
 
-                    <img className="w-96 h-96 left-[821px] top-0 absolute rounded-xl hover:scale-105 transition duration-300 ease-in-out" src={img2} />
-                    <Card className="w-80 h-36 left-[852px] top-[311px] absolute bg-white rounded-xl shadow-xl">
-                    <h1 className="left-[20px] top-[20px] absolute text-black text-xl font-bold ">Adam's Peak (Sri Pada)</h1>
-                    <div className="w-64 left-[20px] top-[50px] absolute text-justify text-black text-base font-light font-['Inter'] capitalize">Adam's Peak is a 2,243 m 
-                        tall conical sacred mountain located in central Sri Lanka</div>
-                    </Card>
+        <div className="flex flex-wrap justify-center gap-20 lg:gap-16 lg:ml-[400px] -mt-64">
+          <div className="relative group">
+            <img className="w-72 h-72 lg:w-96 lg:h-96 rounded-xl transition-transform duration-300 ease-in-out group-hover:scale-105" src={img1} alt="Ella rock" />
+            <Card className="absolute inset-x-0 bottom-0 mx-auto w-72 lg:w-80 h-36 bg-white rounded-xl shadow-xl transform translate-y-8 lg:translate-y-12">
+              <h1 className="text-black text-xl font-bold p-4">Ella rock</h1>
+              <h1 className="text-black text-base font-light font-['Inter'] capitalize px-2">Located near the town of Ella</h1>
+            </Card>
+          </div>
 
-                    <img className="w-96 h-96 left-[1268px] top-0 absolute rounded-xl hover:scale-105 transition duration-300 ease-in-out" src={img3} />
-                    <Card className='w-80 h-36 left-[1300px] top-[311px] absolute bg-white rounded-xl shadow-xl'>
-                    <div className="left-[20px] top-[20px] absolute text-black text-xl font-bold">Pidurutalagala</div>
-                    <div className="left-[20px] top-[50px] absolute text-black text-base font-light font-['Inter']">Highest mountain in Sri Lanka</div>
-                    </Card>
-                </div>
-            </div>
-        </section>
+          <div className="relative group">
+            <img className="w-72 h-72 lg:w-96 lg:h-96 rounded-xl transition-transform duration-300 ease-in-out group-hover:scale-105" src={img2} alt="Adam's Peak" />
+            <Card className="absolute inset-x-0 bottom-0 mx-auto w-72 lg:w-80 h-36 bg-white rounded-xl shadow-xl transform translate-y-8 lg:translate-y-12">
+              <h1 className="text-black text-xl font-bold p-0">Adam's Peak (Sri Pada)</h1>
+              <div className="text-black text-base font-light font-['Inter'] capitalize px-2">
+                Adam's Peak is a 2,243 m tall conical sacred mountain located in central Sri Lanka
+              </div>
+            </Card>
+          </div>
+
+          <div className="relative group">
+            <img className="w-72 h-72 lg:w-96 lg:h-96 rounded-xl transition-transform duration-300 ease-in-out group-hover:scale-105" src={img3} alt="Pidurutalagala" />
+            <Card className="absolute inset-x-0 bottom-0 mx-auto w-72 lg:w-80 h-36 bg-white rounded-xl shadow-xl transform translate-y-8 lg:translate-y-12">
+              <h1 className="text-black text-xl font-bold p-4">Pidurutalagala</h1>
+              <div className="text-black text-base font-light font-['Inter'] px-4">Highest mountain in Sri Lanka</div>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </section>
 
          {/* ------------------------features section-------------------------------------------------- */}
-        <section>
-        <div className="  justify-center items-center inline-flex">
-            <div className=" absolute  top-[1680px] left-[131px] z-[-1]">
-                <Card  className="w-[500px] h-[600px] left-[150px]  bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out">
-                    <img className=" absolute rounded-xl w-[450px]" src={F1} /> 
-                    <h1 className='w-64 mt-[370px] text-center text-black text-xl font-bold'>Inter Connect Each Hikers</h1>
-                    <h1 className=' mt-[20px] font-extralight text-black text-xl text-left'>Every hiker can connect through the application and it will be useful in their emergency situations</h1>
-                </Card>
-                <Card  className="w-[400px] h-[600px] left-[660px] top-[-600px] bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out">
-                    <img className=" absolute rounded-xl w-[350px]" src={F2} /> 
-                    <h1 className='w-64 mt-[290px]  text-black text-xl font-bold text-center ml-10'>Tracking Your Path</h1>
-                    <h1 className='w-64 mt-[20px] font-extralight text-black text-xl text-center ml-10'>
-                        Web application tracks all hikers paths, and it helps hikers in emergency cases and finds a way back home.</h1>
-                </Card>
-                <Card  className="w-[400px] h-[600px] left-[1070px] top-[-1200px] bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out">
-                    <img className=" absolute rounded-xl w-[350px]" src={F3} /> 
-                    <h1 className='w-64 mt-[290px]  text-black text-xl font-bold text-center ml-10'>Send SOS Message In Your Emergency</h1>
-                    <h1 className='w-64 mt-[20px] font-extralight text-black text-xl text-center ml-10'>
-                        Hikers can send sos message  in nearby police station when there emergency using application</h1>
-                </Card>
-                <Card  className="w-[500px] h-[220px] left-[150px] top-[-1190px] bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out">
-                    <h1 className='w-64 text-center text-black text-xl font-bold'>Inter Connect Each Hikers</h1>
-                    <h1 className=' mt-[20px] font-extralight text-black text-xl text-left'>Every hiker can connect through the application and it will be useful in their emergency situations</h1>
-                </Card>
-                <Card  className="w-[810px] h-[220px] left-[660px] top-[-1410px] bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out">
-                    <h1 className='w-64 text-center text-black text-xl font-bold'>Inter Connect Each Hikers</h1>
-                    <h1 className='mt-[20px] font-extralight text-black text-xl text-left'>All registered hikers can chat through the application with each other when they hike.</h1>
-                </Card>
-            </div>
-        </div>
-        </section>
+         <section className="relative lg:py-[0px] px-5 md:px-20 py-[100px] lg:mt-[150px] -lg:mt-96">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-5">
+        <Card className="relative w-full md:w-[500px] h-auto bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out p-5">
+          <img className="w-full rounded-xl" src={F1} alt="Feature 1" />
+          <h1 className="mt-5 text-center text-black text-xl font-bold">
+            Inter Connect Each Hikers
+          </h1>
+          <h1 className="mt-3 font-extralight text-black text-xl text-left">
+            Every hiker can connect through the application and it will be useful in their emergency situations
+          </h1>
+        </Card>
+
+        <Card className="relative w-full md:w-[400px] h-auto bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out p-5">
+          <img className="w-full rounded-xl" src={F2} alt="Feature 2" />
+          <h1 className="mt-5 text-center text-black text-xl font-bold">
+            Tracking Your Path
+          </h1>
+          <h1 className="mt-3 font-extralight text-black text-xl text-center">
+            Web application tracks all hikers' paths, and it helps hikers in emergency cases and finds a way back home.
+          </h1>
+        </Card>
+
+        <Card className="relative w-full md:w-[400px] h-auto bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out p-5">
+          <img className="w-full rounded-xl" src={F3} alt="Feature 3" />
+          <h1 className="mt-5 text-center text-black text-xl font-bold">
+            Send SOS Message In Your Emergency
+          </h1>
+          <h1 className="mt-3 font-extralight text-black text-xl text-center">
+            Hikers can send SOS messages to nearby police stations during emergencies using the application.
+          </h1>
+        </Card>
+      </div>
+
+      <div className="flex flex-col md:flex-row justify-center items-center gap-5 mt-10">
+        <Card className="relative w-full md:w-[500px] h-52 bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out p-5">
+          <h1 className="text-center text-black text-xl font-bold">
+            Inter Connect Each Hikers
+          </h1>
+          <h1 className="mt-3 font-extralight text-black text-xl text-left">
+            Every hiker can connect through the application and it will be useful in their emergency situations.
+          </h1>
+        </Card>
+
+        <Card className="relative w-full md:w-[810px] h-52 bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out p-5">
+          <h1 className="text-center text-black text-xl font-bold">
+            Inter Connect Each Hikers
+          </h1>
+          <h1 className="mt-3 font-extralight text-black text-xl text-left">
+            All registered hikers can chat through the application with each other when they hike.
+          </h1>
+        </Card>
+      </div>
+    </section>
 
             {/* -----------------------------steps section------------------------------------------------------------- */}
-        <section>
+        <section className='hidden md:block'>
         <div >
-            <div className="w-96 h-96 left-[620px] top-[2700px] absolute z-[-1]">
+            <div className="w-96 h-96 left-[620px] top-[2650px] absolute z-[-1]">
+              <img className='h-[1000px] w-96 ml-32 -mt-32' src={arrow}/>
               <Card className="w-80 h-24 left-0 top-0 absolute bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out">
               <div className="w-16 h-16 left-[15px] top-[18px] absolute bg-teal-950 rounded-full"><h1 className='text-white text-5xl font-bold py-1 px-4'>1</h1></div>
               <h1 className="left-[90px] top-[11px] absolute text-black text-2xl font-bold">Find a hike</h1>
@@ -175,74 +203,68 @@ const Home = () => {
         </section>
 
           {/* ------------------------download section-------------------------------------------------- */}
-        <section>
-            <div className=" h-96 top-[3600px] absolute">
-                <h1 className="h-20 ml-[500px] text-cyan-950 text-5xl font-black">Get the Trailmaker App</h1>
-                <h1 className="ml-[500px] -mt-[18px] text-black font-medium">Connect with your ultimate hiking partner</h1>
-                <img className="w-96 h-96 left-0 top-0 absolute" src={img11} />
-                <img className="w-96 h-96 left-[1288px] top-[17px] absolute" src={img12} />
-                <img className="w-40 h-14 left-[500px] top-[103px] absolute" src={google} />
-                <img className="w-40 h-14 left-[676px] top-[103px] absolute" src={apple} />
+          <section className="relative w-full h-96 bg-teal-900 py-10 px-5 lg:mt-[970px] ">
+          <div className="flex flex-col items-center justify-center lg:mt-14 ">
+        <h1 className="text-white text-3xl lg:text-5xl font-black md:text-center">Get the TrailMaker App</h1>
+        <h1 className="text-white font-medium mt-2 md:mt-4">Connect with your ultimate hiking partner</h1>
+        <div className="flex space-x-4 mt-6 md:mt-8">
+            <img className="w-32 h-12 md:w-40 md:h-14" src={google} alt="Google Play Store" />
+            <img className="w-32 h-12 md:w-40 md:h-14" src={apple} alt="Apple App Store" />
+        </div>
+    </div>
+</section>
+
+  {/* ------------------------review section-------------------------------------------------- */}
+<section className="relative w-full py-10 px-5 bg-gray-50 flex flex-col md:items-center lg:items-start">
+    <div className="max-w-screen-lg mx-auto lg:ml-32 lg:mt-14 absolute">
+        <div className="flex flex-col md:flex-row md:space-x-10">
+            <div className="flex flex-col">
+                <h1 className="text-black text-3xl md:text-5xl font-bold font-['Inter'] mt-8 md:mt-0 lg:mt-14">Hiker Reviews</h1>
+                <h1 className="text-black text-base font-light mt-4 md:mt-2">Here’s what some of our hikers have to say</h1>
+                <h1 className="text-blue-500 text-base font-bold underline mt-2 md:mt-4 inline-flex items-center">
+                    Read all reviews 
+                    <FiArrowDownRight className="ml-2 -mt-1"/>
+                </h1>  
             </div>
-        </section>
+            
+            <div className="flex flex-col md:flex-row md:gap-10 gap-4 mt-8 md:mt-12 lg:mt-1">
+                <Card className="w-full md:w-80 h-80 bg-white rounded-xl shadow-xl mx-auto">
+                    <img className="w-24 h-24 mx-auto mt-4" src={user4} alt="User 1" />
+                    <img className="w-24 h-8 mx-auto mt-4" src={star} alt="Rating Star" />
+                    <div className="text-center text-black text-lg font-normal mt-4">App praised for simplicity, letting hikers focus on the trail.</div> 
+                </Card>
 
-        <section>
-            <div className="w-96 h-96 absolute top-[4100px] left-[131px]">
-                <div>
-                    <h1 className="left-[1px] top-[37px] absolute text-black text-5xl font-bold font-['Inter']">Hiker<br/>reviews</h1>
-                    <h1 className="left-0 top-[146px] absolute text-black text-base font-light font-['Inter']">Here’s What some of our<br/>hikers have to say</h1>
-                    <h1 className="left-[1px] top-[211px] absolute text-black text-base font-bold font-['Inter'] underline">Read all reviews <FiArrowDownRight  className='ml-[130px] -mt-4'/></h1>  
-                </div>
-                
-                <div>
-                    <Card className="w-80 h-80 left-[275px] top-0 absolute bg-white rounded-xl shadow-xl">
-                    <img className="w-24 h-24 left-[103px] top-[30px] absolute" src={user4}/>
-                    <img className="w-24 h-8 left-[103px] top-[152px] absolute" src={star}/>
-                    <div className="w-52 left-[50px] top-[200px] absolute text-center text-black text-xs font-normal">“Simple and effective! I love how easy it is to track my hikes with this app. No complicated features, just straightforward tracking. 
-                    Perfect for anyone who wants to focus on the trail, not the tech.”</div> 
-                 
-                    </Card>
+                <Card className="w-full md:w-80 h-80 bg-white rounded-xl shadow-xl mx-auto">
+                    <img className="w-24 h-24 mx-auto mt-4" src={user3} alt="User 2" />
+                    <img className="w-24 h-8 mx-auto mt-4" src={star} alt="Rating Star" />
+                    <div className="text-center text-black text-lg font-normal mt-4">Easy app for newbies. Tracks hikes & finds new trails.</div>
+                </Card>
 
-                    <Card className="w-80 h-80 left-[642px] top-[-3px] absolute bg-white rounded-xl shadow-xl">
-                    <img className="w-24 h-24 left-[103px] top-[30px] absolute" src={user3}/>
-                    <img className="w-24 h-8 left-[103px] top-[152px] absolute" src={star}/>
-                    <h1 className="w-56 left-[50px] top-[200px] absolute text-center text-black text-xs font-normal ">"Great for beginners! As someone new to hiking, this app has been a lifesaver. It helps me keep track of my progress 
-                    and motivates me to explore new trails. Plus, the interface is super user-friendly.”</h1>
-                    </Card>
+                <Card className="w-full md:w-80 h-80 bg-white rounded-xl shadow-xl mx-auto">
+                    <img className="w-24 h-24 mx-auto mt-4" src={user2} alt="User 3" />
+                    <img className="w-24 h-8 mx-auto mt-4" src={star} alt="Rating Star" />
+                    <div className="text-center text-black text-lg font-normal mt-4">Nature lover's app: Tracks hikes & lets you share adventures with friends.</div>
+                </Card>
 
-                    <Card className="w-80 h-80 left-[1011px] top-0 absolute bg-white rounded-xl shadow-xl">
-                    <img className="w-24 h-24 left-[103px] top-[30px] absolute" src={user2}/>
-                    <img className="w-24 h-8 left-[103px] top-[152px] absolute" src={star}/>
-                    <h1 className="w-52 left-[55px] top-[200px] absolute text-center text-black text-xs font-normal ">“ Handy tool for nature lovers! I'm always out in the wilderness, and this app has become my go-to companion. 
-                    It reliably records my hikes, and I can easily share my routes with friends.”</h1>
-                    </Card>
+                <Card className="w-full md:w-80 h-80 bg-white rounded-xl shadow-xl mx-auto">
+                    <img className="w-24 h-24 mx-auto mt-4" src={user1} alt="User 4" />
+                    <img className="w-24 h-8 mx-auto mt-4" src={star} alt="Rating Star" />
+                    <div className="text-center text-black text-lg font-normal mt-4">Lacks advanced tracking (basic), but still useful for recording hikes.</div>
+                </Card>
+              </div>
+          </div>
+      </div>
+  </section>
 
-                    <Card className="w-80 h-80 left-[1380px] top-0 absolute bg-white rounded-xl shadow-xl">
-                    <img className="w-24 h-24 left-[103px] top-[30px] absolute" src={user1}/>
-                    <img className="w-24 h-8 left-[103px] top-[152px] absolute" src={star}/>
-                    <h1 className="w-60 left-[45px] top-[200px] absolute text-center text-black text-xs font-normal font-['Inter'] leading-none">“Could use more features. While this app gets the job done, 
-                    I wish it had more advanced tracking options.It's a bit basic for my taste, but it's still useful for keeping tabs on my hikes.”</h1>
-                    </Card>
-                    </div>
-                <div/>
-            </div>
-        </section>
+  {/* ------------------------footer-------------------------------------------------- */}
+    <section>
+        <div className="w-full h-10 bg-teal-900 flex justify-between items-center px-4 lg:mt-[500px] mt-[1500px]">
+          <h1 className="text-white text-xl">TrailMaker.LK</h1>
+          <h1 className="text-white text-sm">info@trailmaker.com</h1>
+        </div>
+      </section>
 
-        <section>  
-                {/* --------------------------------footer------------------------------------------------------------ */}
-        <div className='mt-[4500px]'>
-            <div className="w-full h-70 bg-teal-950 absolute">
-                <h1 className='text-white text-2xl font-black ml-10 mt-3'>TrailMaker</h1>
-                <h1 className='text-white text-base font-extralight ml-10 mt-2'>Your Ultimate Hiking Companion</h1>
-                <h1 className='text-white text-base font-extralight ml-10 mt-2'>About<br/>Features<br/>Guide<br/>Hikes<br/> <br/></h1>
-            </div>
-            <div className="w-full h-10 bg-teal-900 absolute mt-48">
-                <h1 className='text-white text-xl font-normal ml-6'>TrailMaker.LK</h1>
-                <h1 className='text-white text-sm font-normal ml-[1700px] -mt-[14px]'>info@trailmaker.com</h1>
-            </div>
-        </div>  
-        </section>
-    </section>
+  </section>
   )
 }
 
