@@ -8,6 +8,7 @@ import Hikes from './Pages/Hikes'
 import Save from './Pages/Save'
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
+import Account from './Pages/Account';
 import Path from './Pages/Path'
 import './App.css';
 
@@ -24,6 +25,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/path' element={<Path/>}/>
         <Route path='/signup' element={<Signup/>}/>
+        <Route path='/account' element={<Account/>}/>
       </Routes>
     </Router>
   );

@@ -96,7 +96,7 @@ const Navbar = () => {
             {loggedIn ? (
               <div className="flex items-center space-x-4">
                 <span className="font-bold text-[#083437]">{username}</span>
-                <Button onClick={handleLogout} className="bg-red-600 text-white">
+                <Button onClick={handleLogout} className="bg-green-400 text-white">
                   Logout
                 </Button>
               </div>

@@ -78,7 +78,7 @@ const Save = () => {
   
           <div className='flex space-x-4 justify-center sm:justify-end'>
             <Button className='w-80 h-14 bg-teal-900 rounded-xl flex items-center justify-center text-white lg:w-[600px]'>
-              <h1 className=' text-xs font-black'>Save</h1>
+              <a className=' text-xs font-black' href='./account'>Save</a>
             </Button>
           </div>
 
