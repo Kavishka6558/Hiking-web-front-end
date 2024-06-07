@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import fb1 from '../images/fb1.png';
 import google1 from '../images/google1.png';
-import login from '../images/login.png';
+import login from '../images/login.jpg';
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -35,9 +35,9 @@ const Login = () => {
 
   return (
     <section className="relative flex flex-col items-center justify-center min-h-screen bg-cover bg-center" style={{ backgroundImage: `url(${login})` }}>
-      <div className="w-full max-w-md p-8 mx-auto bg-gray-900 bg-opacity-10 backdrop-blur-lg backdrop-filter shadow-xl rounded-lg">
+      <div className="w-full max-w-md p-8 mx-auto bg-white bg-opacity-25 backdrop-blur-lg backdrop-filter shadow-xl rounded-lg">
         <h1 className="text-black text-4xl font-bold capitalize text-left">TrailMaker</h1>
-        <h1 className="text-black text-base font-light capitalize text-left mt-2">Start Your Adventure</h1>
+        <h1 className="text-black text-xl font-normal capitalize text-left mt-2">Start Your Adventure</h1>
 
         <form onSubmit={handleSubmit} className="mt-6">
           <input
@@ -74,9 +74,9 @@ const Login = () => {
           <h1 className="text-black text-lg font-semibold cursor-pointer">Forgot password</h1>
         </div>
 
-        <h1 className="text-white text-lg font-extralight mt-5 mb-2 text-center">Or continue with</h1>
+        <h1 className="text-black text-lg font-normal mt-5 mb-2 text-center">Or continue with</h1>
         <div className="flex justify-center mb-6">
-          <div className="w-28 h-px border border-white"></div>
+          <div className="w-28 h-px border border-black"></div>
         </div>
 
         <div className="flex items-center justify-center space-x-4">
@@ -84,7 +84,7 @@ const Login = () => {
           <img className="w-7 h-7 cursor-pointer" src={google1} alt="Google" />
         </div>
 
-        <div className="text-white font-extralight text-center mt-6 text-lg">
+        <div className="text-black font-extralight text-center mt-6 text-lg">
           Don’t have an account?
           <a href="/signup" className="ml-1 font-medium">Create</a>
         </div>

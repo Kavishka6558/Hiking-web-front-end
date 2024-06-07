@@ -41,7 +41,7 @@ const Home = () => {
       </div>
 
       <Link to="/trails" className="mt-2 lg:mt-96 lg:ml-44 ml-10">
-        <Button className='bg-teal-900 w-full lg:w-44 h-14 rounded-xl z-10'>
+        <Button className='bg-teal-900 w-full lg:w-44 h-14 rounded-xl z-10 text-white'>
           <a className='text-xl font-medium'>Explore more</a>
         </Button>
       </Link>
@@ -102,7 +102,7 @@ const Home = () => {
          {/* ------------------------features section-------------------------------------------------- */}
          <section className="relative lg:py-[0px] px-5 md:px-20 py-[100px] lg:mt-[150px] -lg:mt-96">
       <div className="flex flex-col md:flex-row justify-center items-center gap-5">
-        <Card className="relative w-full md:w-[500px] h-auto bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out p-5">
+        <Card className="relative w-full md:w-[500px] h-auto bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out p-5 hover:bg-[#6196A6]">
           <img className="w-full rounded-xl" src={F1} alt="Feature 1" />
           <h1 className="mt-5 text-center text-black text-xl font-bold">
             Inter Connect Each Hikers
@@ -112,7 +112,7 @@ const Home = () => {
           </h1>
         </Card>
 
-        <Card className="relative w-full md:w-[400px] h-auto bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out p-5">
+        <Card className="relative w-full md:w-[400px] h-auto bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out p-5 hover:bg-[#6196A6]">
           <img className="w-full rounded-xl" src={F2} alt="Feature 2" />
           <h1 className="mt-5 text-center text-black text-xl font-bold">
             Tracking Your Path
@@ -122,7 +122,7 @@ const Home = () => {
           </h1>
         </Card>
 
-        <Card className="relative w-full md:w-[400px] h-auto bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out p-5">
+        <Card className="relative w-full md:w-[400px] h-auto bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out p-5 hover:bg-[#6196A6]">
           <img className="w-full rounded-xl" src={F3} alt="Feature 3" />
           <h1 className="mt-5 text-center text-black text-xl font-bold">
             Send SOS Message In Your Emergency
@@ -134,7 +134,7 @@ const Home = () => {
       </div>
 
       <div className="flex flex-col md:flex-row justify-center items-center gap-5 mt-10">
-        <Card className="relative w-full md:w-[500px] h-52 bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out p-5">
+        <Card className="relative w-full md:w-[500px] h-52 bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out p-5 hover:bg-[#6196A6]">
           <h1 className="text-center text-black text-xl font-bold">
             Inter Connect Each Hikers
           </h1>
@@ -143,7 +143,7 @@ const Home = () => {
           </h1>
         </Card>
 
-        <Card className="relative w-full md:w-[810px] h-52 bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out p-5">
+        <Card className="relative w-full md:w-[810px] h-52 bg-white rounded-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out p-5 hover:bg-[#6196A6]">
           <h1 className="text-center text-black text-xl font-bold">
             Inter Connect Each Hikers
           </h1>

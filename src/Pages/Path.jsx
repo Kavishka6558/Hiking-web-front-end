@@ -1,101 +1,69 @@
-import React, { useState, useEffect } from 'react';
-import { Segment } from 'semantic-ui-react';
-import ChatBot from 'react-simple-chatbot';
-import { Button } from 'antd';
+import React, { useState } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, Polyline } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+import { Button, Switch } from 'antd';
 import { Link } from 'react-router-dom';
 import SOSModal from '../Modals/SOSModal';
 
-const Path = () => {
-  const [mapUrl, setMapUrl] = useState(
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15840.286273920956!2d80.76303356372034!3d7.000854385807576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3802ac4e14a3b%3A0x2e692126d447a56f!2sPidurutalagala!5e0!3m2!1sen!2slk!4v1715668874106!5m2!1sen!2slk'
-  );
+// Fix marker icon issues with Leaflet in React
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
+  iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+});
 
+const MapWithMarkers = () => {
+  const [markersVisible, setMarkersVisible] = useState(false);
+  const [markers, setMarkers] = useState([]);
+  const [path, setPath] = useState([]);
+
+  const toggleMarkers = () => {
+    setMarkersVisible(!markersVisible);
+    if (!markersVisible) {
+      // Show markers and create a path
+      const newMarkers = [
+        { lat: 7.291603333977511, lng: 80.63451622927738, name: 'Kandy' },
+        { lat: 7.0149954015223095, lng: 80.77321862519683, name: 'Piduruthalagala' },
+      ];
+      setMarkers(newMarkers);
+      setPath(newMarkers.map(marker => [marker.lat, marker.lng]));
+    } else {
+      // Hide markers and remove path
+      setMarkers([]);
+      setPath([]);
+    }
+  };
+
+  
   const [showModal, setShowModal] = useState(false);
-  const [isTracking, setIsTracking] = useState(false);
 
   const handleButtonClick = () => {
     setShowModal(true);
   };
 
-  const handleClick = () => {
-    setIsTracking(!isTracking);
-  };
-
-  useEffect(() => {
-    const markers = [
-      { lat: 6.941627783317487, lng: 79.8626324049256 },
-    { lat: 7.292525006365691,  lng: 80.63373532877485 }
-    ];
-
-    const baseUrl = 'https://www.google.com/maps/embed?pb=';
-    const mapParams = [
-      '1m18', // Map type
-      '1m12', // Map details
-      '1m3',  // Viewport
-      '1d3153.325466774623',  // Zoom level and distance
-      '2d-122.41941548468112', // Longitude
-      '3d37.77492927975974',   // Latitude
-      '2m3',  // Map view type
-      '1f0',  // Field of view
-      '2f0',  // Tilt
-      '3f0',  // Rotation
-      '3m2',  // Map size
-      '1i1024', // Width
-      '2i768',  // Height
-      '4f13.1'  // Zoom level
-    ];
-
-    markers.forEach(marker => {
-      mapParams.push(`3m1!1s0x0:0x0!4m2!3d${marker.lat}!4d${marker.lng}`);
-    });
-
-    const newMapUrl = `${baseUrl}${mapParams.join('!')}`;
-    setMapUrl(newMapUrl);
-  }, []);
-
-  const steps = [
-    {
-      id: 'Greet',
-      message: 'Hi, Good morning',
-      trigger: 'waiting',
-    },
-    {
-      id: 'waiting',
-      user: true,
-      trigger: 'msg',
-    },
-    {
-      id: 'msg',
-      message: 'Where are you on the trail?',
-      trigger: 'issues',
-    },
-    {
-      id: 'issues',
-      user: true,
-      trigger: 'Reply',
-    },
-    {
-      id: 'Reply',
-      message: 'Ok',
-      end: true
-    },
-  ];
-
   return (
-    <section className="relative h-screen">
-      {/* SOS button */}
-      <div className="relative">
+    <div style={{ position: 'relative', height: '100vh' }}>
+      <MapContainer center={[7.291603333977511, 80.63451622927738]} zoom={10} style={{ height: "100%", width: "100%", zIndex: 0 }}>
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
+        {markers.map((marker, idx) => (
+          <Marker key={idx} position={[marker.lat, marker.lng]}>
+            <Popup>{marker.name}</Popup>
+          </Marker>
+        ))}
+        {path.length > 0 && <Polyline positions={path} color="blue" />}
+      </MapContainer>
+      <div>
         <div className="absolute top-28 left-4 md:right-auto md:left-4 md:top-20 z-10">
-          <Button
-            onClick={handleButtonClick}
-            className="w-24 md:w-32 h-10 md:h-11 bg-teal-900 rounded-xl shadow backdrop-blur-xl text-white">
-            <h1 className="text-xs md:text-sm font-bold">SOS</h1>
-          </Button>
+          <Button onClick={handleButtonClick} className="w-24 md:w-32 h-10 md:h-11 bg-teal-900 rounded-xl shadow backdrop-blur-xl text-white">SOS</Button>
         </div>
         <SOSModal showModal={showModal} setShowModal={setShowModal} />
       </div>
-
-      {/* Auto save */}
+      
       <div className="absolute top-20 left-4 md:right-auto md:left-4 md:top-[150px] z-10 flex items-center">
         <label className="relative inline-flex items-center cursor-pointer">
           <input type="checkbox" className="sr-only peer" />
@@ -105,49 +73,20 @@ const Path = () => {
         <h1 className="ml-3 text-black text-sm md:text-xl font-bold">Auto Save</h1>
       </div>
 
-      {/* Start tracking button */}
-      <div className="absolute top-20 right-4 md:left-auto md:right-4 md:top-[100px] z-10">
-        <Button
-          onClick={handleClick}
-          className="w-24 md:w-32 h-10 md:h-11 bg-teal-900 rounded-xl shadow backdrop-blur-xl text-white">
-          <h1 className="text-xs md:text-sm font-bold">
-            {isTracking ? 'End tracking' : 'Start tracking'}
-          </h1>
+      <div className="absolute top-20 right-4 md:left-auto md:right-4 md:top-[100px]">
+        <Button className="w-24 md:w-32 h-10 md:h-11 bg-teal-900 rounded-xl shadow backdrop-blur-xl text-white" 
+          onClick={toggleMarkers}>{markersVisible ? 'End & Save' : 'Start tracking'}
         </Button>
       </div>
-
-      {/* Save my path button */}
-      <div className="absolute top-32 right-4 md:left-auto md:right-4 md:top-[150px] z-10">
+      <div className="absolute top-20 right-4 md:left-auto md:right-4 md:top-[150px]">
         <Link to="/save">
           <Button className="w-24 md:w-32 h-10 md:h-11 bg-teal-900 rounded-xl shadow backdrop-blur-xl text-white">
-            <h1 className="text-xs md:text-sm font-bold">Save my path</h1>
+            <h1>End & Save</h1>
           </Button>
         </Link>
       </div>
-
-      {/* Map implementation */}
-      <div>
-        <h1>Map with Markers</h1>
-        <iframe
-          id="map"
-          src={mapUrl}
-          width="600"
-          height="450"
-          style={{ border: 0 }}
-          allowFullScreen=""
-          aria-hidden="false"
-          tabIndex="0"
-        ></iframe>
-      </div>
-
-      {/* Chat implementation
-      <div className='mt-[430px] ml-[50px] absolute'>
-        <Segment floated="left">
-          <ChatBot steps={steps} />
-        </Segment>
-      </div> */}
-    </section>
+    </div>
   );
 };
 
-export default Path;
+export default MapWithMarkers;

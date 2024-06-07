@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
+import { TiTick } from "react-icons/ti";
 import users from './Users';
 import img9 from '../images/img9.png';
-import { TiTick } from "react-icons/ti";
 
 const Create = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [buttonText, setButtonText] = useState('Add to hike');
+  const [clickedButtons, setClickedButtons] = useState(Array(users.length).fill(false));
 
-    const handleClick = () => {
-    setButtonText(<TiTick />);
+  const handleClick = (index) => {
+    const newClickedButtons = [...clickedButtons];
+    newClickedButtons[index] = !newClickedButtons[index];
+    setClickedButtons(newClickedButtons);
   };
 
   const handleChange = (event) => {
@@ -97,9 +99,10 @@ const Create = () => {
                   <span className="text-black text-sm font-medium">{user.name}</span>
                 </div>
                 <button 
-                  className="w-24 h-9 bg-teal-900 rounded-xl text-white text-xs font-bold"
-                  onClick={handleClick}
-                >{buttonText}
+                  className="w-24 h-9 bg-teal-900 rounded-xl text-white text-xs font-bold flex items-center justify-center"
+                  onClick={() => handleClick(index)}
+                >
+                  {clickedButtons[users.findIndex(u => u.name === user.name)] ? <TiTick /> : 'Add to hike'}
                 </button>
               </div>
             ))}
