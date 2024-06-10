@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import { Button, Switch } from 'antd';
-import { Link } from 'react-router-dom';
+import { Button } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import SOSModal from '../Modals/SOSModal';
 
 // Fix marker icon issues with Leaflet in React
@@ -18,9 +18,9 @@ const MapWithMarkers = () => {
   const [markersVisible, setMarkersVisible] = useState(false);
   const [markers, setMarkers] = useState([]);
   const [path, setPath] = useState([]);
+  const navigate = useNavigate();
 
   const toggleMarkers = () => {
-    setMarkersVisible(!markersVisible);
     if (!markersVisible) {
       // Show markers and create a path
       const newMarkers = [
@@ -33,10 +33,12 @@ const MapWithMarkers = () => {
       // Hide markers and remove path
       setMarkers([]);
       setPath([]);
+      // Navigate to save page
+      navigate('/save');
     }
+    setMarkersVisible(!markersVisible);
   };
 
-  
   const [showModal, setShowModal] = useState(false);
 
   const handleButtonClick = () => {
@@ -77,13 +79,6 @@ const MapWithMarkers = () => {
         <Button className="w-24 md:w-32 h-10 md:h-11 bg-teal-900 rounded-xl shadow backdrop-blur-xl text-white" 
           onClick={toggleMarkers}>{markersVisible ? 'End & Save' : 'Start tracking'}
         </Button>
-      </div>
-      <div className="absolute top-20 right-4 md:left-auto md:right-4 md:top-[150px]">
-        <Link to="/save">
-          <Button className="w-24 md:w-32 h-10 md:h-11 bg-teal-900 rounded-xl shadow backdrop-blur-xl text-white">
-            <h1>End & Save</h1>
-          </Button>
-        </Link>
       </div>
     </div>
   );

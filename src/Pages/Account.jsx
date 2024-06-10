@@ -19,7 +19,7 @@ const Account = () => {
       };
   
   return (
-    <section className='bg-slate-300 min-h-screen absolute w-full z-[-1]'>
+    <section className='bg-slate-300 min-h-screen absolute w-full'>
     <div className='ml-4 md:ml-[150px]'>
         <img className="w-full md:w-96 h-52 rounded-tl-xl rounded-tr-xl mt-12 md:mt-[192px] md:ml-[100px]" src={img13} />
         <div className="w-full md:w-96 h-auto md:h-96 bg-white shadow-xl relative md:absolute top-[400px] md:top-[400px] left-0 md:left-[250px] rounded-br-xl rounded-bl-xl">
